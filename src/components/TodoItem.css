@@ -1,0 +1,190 @@
+/* TodoItem Container */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+  list-style: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.todo-item:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+}
+
+/* สถานะเมื่อเสร็จแล้ว */
+.todo-item.is-completed {
+  background-color: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+/* 1. Toggle / Checkbox Container */
+.todo-toggle-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.todo-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.todo-checkbox {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: #3b82f6;
+}
+
+/* 2. Content Section */
+.todo-content {
+  flex: 1;
+  min-width: 0; /* ป้องกัน flex child ล้น */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.todo-header-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.todo-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  word-break: break-word;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+/* Title เมื่อเสร็จสมบูรณ์ */
+.todo-title.todo-title-completed {
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+/* Meta Data: Priority & Due Date */
+.todo-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.813rem;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.badge-completed {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.priority-high {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.priority-medium {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.priority-low {
+  background-color: #e0f2fe;
+  color: #075985;
+}
+
+.todo-date-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #64748b;
+}
+
+.todo-due-date {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 3. Action Section */
+.todo-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.btn-delete {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background-color: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #fecdd3;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 38px; /* Touch target ที่สะดวกบนอุปกรณ์พกพา */
+}
+
+.btn-delete:hover {
+  background-color: #ffe4e6;
+  border-color: #fda4af;
+  color: #be123c;
+}
+
+.btn-delete:active {
+  transform: scale(0.97);
+}
+
+/* 4. Responsive Rules สำหรับหน้าจอขนาดเล็ก (Mobile Friendly) */
+@media (max-width: 540px) {
+  .todo-item {
+    align-items: flex-start;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .todo-checkbox {
+    margin-top: 2px;
+  }
+
+  .btn-delete {
+    padding: 6px 10px;
+  }
+
+  .delete-text {
+    display: none; /* ซ่อนข้อความ เหลือเฉพาะไอคอนบนจอแคบเพื่อประหยัดพื้นที่ */
+  }
+
+  .btn-delete .delete-icon {
+    font-size: 1rem;
+  }
+}
